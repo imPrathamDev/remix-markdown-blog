@@ -1,6 +1,7 @@
 import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
+import markdownToTxt from "markdown-to-txt";
 
 const blogsDirectory = path.join(process.cwd(), "blogs");
 
@@ -46,3 +47,20 @@ export const getBlogBySlug = async ({ slug }: { slug: string }) => {
     return undefined;
   }
 };
+
+export async function searchBlogs(q: string) {
+  try {
+    const blogs = await getBlogs({ showContent: true });
+    let nq = q.trim().toLowerCase();
+    const searched = blogs.filter(
+      (f) =>
+        f.data.title.toLowerCase().includes(nq) ||
+        f.data.description.toLowerCase().includes(nq) ||
+        f.data.author.toLowerCase().includes(nq)
+    );
+    return searched;
+  } catch (error) {
+    console.log("searchBlogs() :: ERR ==> ", error);
+    return undefined;
+  }
+}

@@ -1,6 +1,6 @@
 import { json, type MetaFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
-import { getBlogs } from "helpers/blogHelper";
+import { getBlogs, searchBlogs } from "helpers/blogHelper";
 
 export const meta: MetaFunction = () => {
   return [
@@ -14,6 +14,9 @@ export const meta: MetaFunction = () => {
 
 export const loader = async () => {
   const blogs = await getBlogs({});
+  let s = await searchBlogs("remix");
+  console.log("search => ", s);
+
   return json({ ok: true, blogs });
 };
 
