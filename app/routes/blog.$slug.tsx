@@ -5,7 +5,6 @@ import {
   useRouteError,
 } from "@remix-run/react";
 import { getBlogBySlug } from "helpers/blogHelper";
-import React from "react";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   if (params.slug) {
