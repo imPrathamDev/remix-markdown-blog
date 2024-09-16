@@ -1,4 +1,4 @@
-import { json, LoaderFunctionArgs } from "@remix-run/node";
+import { json, LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import {
   isRouteErrorResponse,
   useLoaderData,
@@ -22,14 +22,49 @@ export async function loader({ params }: LoaderFunctionArgs) {
   throw json("Not Found", { status: 404 });
 }
 
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  let title = data?.blog.data.title + " By " + data?.blog.data.author;
+  return [
+    { title },
+    {
+      name: "description",
+      content: data?.blog.data.description,
+    },
+    {
+      property: "og:title",
+      content: title,
+    },
+    {
+      property: "og:description",
+      content: data?.blog.data.description,
+    },
+    {
+      property: "og:image",
+      content: data?.blog.data.thumbnail,
+    },
+    {
+      property: "og:type",
+      content: "article",
+    },
+    {
+      property: "author",
+      content: data?.blog.data.author,
+    },
+    {
+      property: "keywords",
+      content: data?.blog.data.categories.join(", "),
+    },
+  ];
+};
+
 function BlogPage() {
   const data = useLoaderData<typeof loader>();
   return (
     <div className="p-2">
       <h1 className="text-2xl my-1">{data.blog.data.title}</h1>
-      <div className="prose">
+      <article className="prose lg:prose-xl">
         <Markdown>{data.blog.content}</Markdown>
-      </div>
+      </article>
     </div>
   );
 }
