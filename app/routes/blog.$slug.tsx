@@ -17,9 +17,9 @@ export async function loader({ params }: LoaderFunctionArgs) {
         blog,
       });
     }
-    throw json("Not Found", { status: 404 });
+    throw json("No Blog Found", { status: 404 });
   }
-  throw json("Not Found", { status: 404 });
+  throw json("No Blog Found", { status: 404 });
 }
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
