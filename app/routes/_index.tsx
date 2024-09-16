@@ -1,5 +1,5 @@
 import { json, type MetaFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import { getBlogs } from "helpers/blogHelper";
 
 export const meta: MetaFunction = () => {
@@ -13,24 +13,24 @@ export const meta: MetaFunction = () => {
 };
 
 export const loader = async () => {
-  const blogs = await getBlogs();
+  const blogs = await getBlogs({});
   return json({ ok: true, blogs });
 };
 
 export default function Index() {
   const data = useLoaderData<typeof loader>();
-  console.log(data);
-
   return (
     <div className="font-sans p-4">
       <h1 className="text-3xl text-black">Remix Markdown Blog</h1>
       <div className="">
         {data.ok &&
           data.blogs.map((blog) => (
-            <div>
-              <h2>{blog.data.title}</h2>
-              <p>{blog.content}</p>
-            </div>
+            <Link key={blog.id} to={"/blog/" + blog.id}>
+              <div>
+                <h2>{blog.data.title}</h2>
+                <p>{blog.data.description}</p>
+              </div>
+            </Link>
           ))}
       </div>
     </div>
