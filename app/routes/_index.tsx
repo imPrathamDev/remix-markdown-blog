@@ -1,48 +1,38 @@
-import type { MetaFunction } from "@remix-run/node";
+import { json, type MetaFunction } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
+import { getBlogs } from "helpers/blogHelper";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "Remix Markdown Blog" },
+    {
+      name: "description",
+      content: "Welcome to Remix Markdown Blog By Pratham Sharma.",
+    },
   ];
 };
 
+export const loader = async () => {
+  const blogs = await getBlogs();
+  return json({ ok: true, blogs });
+};
+
 export default function Index() {
+  const data = useLoaderData<typeof loader>();
+  console.log(data);
+
   return (
     <div className="font-sans p-4">
-      <h1 className="text-3xl">Welcome to Remix</h1>
-      <ul className="list-disc mt-4 pl-6 space-y-2">
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="https://remix.run/start/quickstart"
-            rel="noreferrer"
-          >
-            5m Quick Start
-          </a>
-        </li>
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="https://remix.run/start/tutorial"
-            rel="noreferrer"
-          >
-            30m Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            className="text-blue-700 underline visited:text-purple-900"
-            target="_blank"
-            href="https://remix.run/docs"
-            rel="noreferrer"
-          >
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+      <h1 className="text-3xl text-black">Remix Markdown Blog</h1>
+      <div className="">
+        {data.ok &&
+          data.blogs.map((blog) => (
+            <div>
+              <h2>{blog.data.title}</h2>
+              <p>{blog.content}</p>
+            </div>
+          ))}
+      </div>
     </div>
   );
 }
