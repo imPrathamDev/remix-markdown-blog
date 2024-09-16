@@ -24,10 +24,14 @@ export default function Index() {
       <h1 className="text-3xl text-black">Remix Markdown Blog</h1>
       <div className="">
         {data.ok &&
-          data.blogs.map((blog) => (
+          data.blogs.map((blog, index) => (
             <Link key={blog.id} to={"/blog/" + blog.id}>
-              <div>
-                <h2>{blog.data.title}</h2>
+              <div className="px-2 py-1.5 bg-gray-100 hover:bg-gray-300 transition-all rounded-2xl my-1">
+                <div className="flex flex-row items-center gap-x-1">
+                  <h2 className="text-xl text-gray-900 my-1">
+                    {index + 1}. {blog.data.title}
+                  </h2>
+                </div>
                 <p>{blog.data.description}</p>
               </div>
             </Link>

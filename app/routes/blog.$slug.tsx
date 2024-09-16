@@ -5,6 +5,7 @@ import {
   useRouteError,
 } from "@remix-run/react";
 import { getBlogBySlug } from "helpers/blogHelper";
+import Markdown from "markdown-to-jsx";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   if (params.slug) {
@@ -23,7 +24,14 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
 function BlogPage() {
   const data = useLoaderData<typeof loader>();
-  return <div>{data.blog.data.title}</div>;
+  return (
+    <div className="p-2">
+      <h1 className="text-2xl my-1">{data.blog.data.title}</h1>
+      <div className="prose">
+        <Markdown>{data.blog.content}</Markdown>
+      </div>
+    </div>
+  );
 }
 
 export function ErrorBoundary() {
