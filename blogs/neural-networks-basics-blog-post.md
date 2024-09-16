@@ -3,11 +3,11 @@ title: "Demystifying Neural Networks: A Beginner's Guide"
 date: "2023-09-18"
 slug: "neural-networks-basics"
 description: "Explore the fundamentals of neural networks, their structure, and how they form the backbone of modern artificial intelligence."
-auther: "Dr. Sarah Chen"
+author: "Dr. Sarah Chen"
 categories:
-    - "Artificial Intelligence"
-    - "Machine Learning"
-    - "Data Science"
+  - "Artificial Intelligence"
+  - "Machine Learning"
+  - "Data Science"
 thumbnail: "/public/neural-networks.png"
 ---
 

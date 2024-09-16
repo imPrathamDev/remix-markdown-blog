@@ -3,11 +3,11 @@ title: "Unlocking the Power of Python Decorators"
 date: "2023-09-17"
 slug: "python-decorators-explained"
 description: "Dive into Python decorators and learn how to use them to modify functions and classes without changing their source code."
-auther: "Alex Johnson"
+author: "Alex Johnson"
 categories:
-    - "Python"
-    - "Programming"
-    - "Advanced Concepts"
+  - "Python"
+  - "Programming"
+  - "Advanced Concepts"
 thumbnail: "/public/python-decorators.png"
 ---
 

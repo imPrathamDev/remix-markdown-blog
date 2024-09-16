@@ -3,11 +3,11 @@ title: "Mastering React Hooks: useState and useEffect"
 date: "2023-09-16"
 slug: "mastering-react-hooks"
 description: "Learn how to use React's useState and useEffect hooks to manage state and side effects in your functional components."
-auther: "Jane Doe"
+author: "Jane Doe"
 categories:
-    - "React"
-    - "JavaScript"
-    - "Web Development"
+  - "React"
+  - "JavaScript"
+  - "Web Development"
 thumbnail: "/public/react-hooks.png"
 ---
 
@@ -20,7 +20,7 @@ React Hooks have revolutionized the way we write React components. They allow us
 The `useState` hook allows you to add state to your functional components. Here's a simple example:
 
 ```javascript
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function Counter() {
   const [count, setCount] = useState(0);
@@ -28,9 +28,7 @@ function Counter() {
   return (
     <div>
       <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
     </div>
   );
 }
@@ -43,7 +41,7 @@ In this example, `useState(0)` initializes a state variable `count` with a value
 The `useEffect` hook lets you perform side effects in functional components. It's similar to lifecycle methods in class components. Here's an example:
 
 ```javascript
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 function DocumentTitleUpdater() {
   const [count, setCount] = useState(0);
@@ -55,9 +53,7 @@ function DocumentTitleUpdater() {
   return (
     <div>
       <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
     </div>
   );
 }
