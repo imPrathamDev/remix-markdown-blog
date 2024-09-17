@@ -1,6 +1,6 @@
 import { json, type MetaFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
-import { getBlogs, searchBlogs } from "helpers/blogHelper";
+import { getBlogs, searchBlogs } from "~/helpers/blogHelper";
 
 export const meta: MetaFunction = () => {
   return [

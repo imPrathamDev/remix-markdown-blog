@@ -4,7 +4,7 @@ import {
   useLoaderData,
   useRouteError,
 } from "@remix-run/react";
-import { getBlogBySlug } from "helpers/blogHelper";
+import { getBlogBySlug } from "~/helpers/blogHelper";
 import Markdown from "markdown-to-jsx";
 
 export async function loader({ params }: LoaderFunctionArgs) {

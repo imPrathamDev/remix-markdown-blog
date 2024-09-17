@@ -7,6 +7,14 @@ export default {
       fontFamily: {
         inter: ['"Inter", sans-serif'],
       },
+      colors: {
+        "primary-black": "#111111",
+        "primary-white": "#FAFAFA",
+        "primary-green": "#e0f5b3",
+        "primary-pink": "#d9b6ee",
+        "primary-alt-green": "#d1fb96",
+        "primary-gray": "#efefef",
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],
