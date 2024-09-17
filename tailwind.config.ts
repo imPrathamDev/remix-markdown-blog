@@ -17,5 +17,8 @@ export default {
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("@butterfail/tailwindcss-inverted-radius"),
+  ],
 } satisfies Config;
