@@ -14,17 +14,14 @@ export const meta: MetaFunction = () => {
 
 export const loader = async () => {
   const blogs = await getBlogs({});
-  let s = await searchBlogs("remix");
-  console.log("search => ", s);
-
   return json({ ok: true, blogs });
 };
 
 export default function Index() {
   const data = useLoaderData<typeof loader>();
   return (
-    <div className="font-sans p-4">
-      <h1 className="text-3xl text-black">Remix Markdown Blog</h1>
+    <div className="p-4">
+      <h1 className="text-3xl text-black font-inter">Remix Markdown Blog</h1>
       <div className="">
         {data.ok &&
           data.blogs.map((blog, index) => (
