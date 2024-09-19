@@ -21,7 +21,7 @@
       #000 70%,
       #0000 72%
     ) no-repeat;
-  mask: right calc(var(--s) + var(--r)) top 0 var(--_m),
+  /* mask: right calc(var(--s) + var(--r)) top 0 var(--_m),
     right calc(var(--s) + var(--r)) var(--_m),
     radial-gradient(var(--s) at 100% 0, #0000 99%, #000 101%)
       calc(-1 * var(--r)) var(--r) no-repeat,
@@ -29,20 +29,20 @@
       at calc(100% - var(--s) - 2 * var(--r)) calc(var(--s) + 2 * var(--r)),
       #0000 25%,
       #000 0
-    );
+    ); */
 }
 
 .hero-box-image::after {
   --clr: #fff;
   content: "";
   position: absolute;
-  bottom: 12vh;
+  bottom: 16vh;
   left: -1px;
   width: 2rem;
   height: 2rem;
   background: transparent;
-  border-bottom-left-radius: 36px;
-  box-shadow: -8px 8px var(--clr);
+  border-bottom-left-radius: 32px;
+  box-shadow: -4px 10px var(--clr);
 }
 
 .hero-box-image::before {
@@ -55,5 +55,29 @@
   height: 1.4rem;
   background: transparent;
   border-bottom-left-radius: 80px;
-  box-shadow: -6px 8px var(--clr);
+  box-shadow: -4px 2px var(--clr);
+}
+
+.test3::before {
+  content: "";
+  position: absolute;
+  top: 0.8rem;
+  right: 47.6%;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: transparent;
+  border-bottom-left-radius: 100px;
+  box-shadow: -8px 4px #fff;
+}
+
+.line-0::before {
+  content: "";
+  position: absolute;
+  top: 4.3rem;
+  left: 71%;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: transparent;
+  border-bottom-left-radius: 100px;
+  box-shadow: -8px 8px #fff;
 }
