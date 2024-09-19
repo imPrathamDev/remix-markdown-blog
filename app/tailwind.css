@@ -2,14 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
-.test::after {
+/* .test::after {
   position: absolute;
   content: "";
-  top: -1.25rem;
-  right: 0.375rem;
+  bottom: 0;
+  right: -1rem;
   background: red;
   width: 1.25rem;
   height: 1.25rem;
-  border-bottom-right-radius: 1.25rem;
-  box-shadow: 0.313rem 0.313rem 0 0.313rem #fff;
+  border-bottom-left-radius: 1.25rem;
+  box-shadow: 0.313rem 0.313rem 0 0 #fff;
+} */
+
+.test {
+  --r: 24px; /* the radius */
+  --s: 2rem; /* the size of the corner*/
+  --_m: /calc(2 * var(--r)) calc(2 * var(--r)) radial-gradient(
+      #000 70%,
+      #0000 72%
+    ) no-repeat;
+  mask: right calc(var(--s) + var(--r)) top 0 var(--_m),
+    right calc(var(--s) + var(--r)) var(--_m),
+    radial-gradient(var(--s) at 100% 0, #0000 99%, #000 101%)
+      calc(-1 * var(--r)) var(--r) no-repeat,
+    conic-gradient(
+      at calc(100% - var(--s) - 2 * var(--r)) calc(var(--s) + 2 * var(--r)),
+      #0000 25%,
+      #000 0
+    );
+}
+
+.hero-box-image::after {
+  --clr: #fff;
+  content: "";
+  position: absolute;
+  bottom: 12vh;
+  left: -1px;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border-bottom-left-radius: 36px;
+  box-shadow: -8px 8px var(--clr);
+}
+
+.hero-box-image::before {
+  --clr: #fff;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 66.5%;
+  width: 1.4rem;
+  height: 1.4rem;
+  background: transparent;
+  border-bottom-left-radius: 80px;
+  box-shadow: -6px 8px var(--clr);
 }

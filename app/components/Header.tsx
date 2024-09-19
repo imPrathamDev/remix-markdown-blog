@@ -1,5 +1,5 @@
 import { Link, NavLink } from "@remix-run/react";
-import React from "react";
+import React, { Fragment } from "react";
 import logo from "~/assets/MDB.svg";
 
 function Header() {
@@ -34,7 +34,7 @@ function Header() {
       <div className="pl-8 rounded-full w-full border border-primary-gray flex flex-row items-centers">
         <ul className="flex flex-row items-center gap-x-4 flex-1 py-3">
           {links.map((link, index) => (
-            <>
+            <Fragment key={link.title + index}>
               <NavLink
                 key={link.title + index}
                 to={link.to}
@@ -54,7 +54,7 @@ function Header() {
               {index !== links.length - 1 && (
                 <div className="mx-2 h-1.5 w-1.5 bg-primary-black rounded-full" />
               )}
-            </>
+            </Fragment>
           ))}
         </ul>
         <div className="px-4 flex justify-center items-center border-l border-primary-gray rounded-full">
