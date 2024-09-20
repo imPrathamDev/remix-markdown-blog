@@ -36,7 +36,7 @@
   --clr: #fff;
   content: "";
   position: absolute;
-  bottom: 16vh;
+  bottom: 10vh;
   left: -1px;
   width: 2rem;
   height: 2rem;
@@ -49,13 +49,11 @@
   --clr: #fff;
   content: "";
   position: absolute;
-  bottom: 0;
-  left: 66.66%;
-  width: 1.4rem;
-  height: 1.4rem;
-  background: transparent;
-  border-bottom-left-radius: 80px;
-  box-shadow: -4px 2px var(--clr);
+  bottom: 10vh;
+  left: -1px;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--clr);
 }
 
 .test3::before {
@@ -70,6 +68,16 @@
   box-shadow: -4px 4px #fff;
 }
 
+.test3::after {
+  content: "";
+  position: absolute;
+  top: 1.9rem;
+  right: -0.2rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  background: #fff;
+}
+
 .firstLine::before {
   content: "";
   position: absolute;
@@ -79,7 +87,19 @@
   height: 2rem;
   background: transparent;
   border-bottom-left-radius: 100px;
-  box-shadow: -8px 10px #fff;
+  box-shadow: -8px 4px #fff;
+}
+
+.firstLine::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -0.3rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #fff;
+  /* border-bottom-left-radius: 100px;
+  box-shadow: -8px 4px #fff; */
 }
 
 @media only screen and (max-width: 600px) {
