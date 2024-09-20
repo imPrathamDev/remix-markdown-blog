@@ -1,6 +1,6 @@
 import { Link, NavLink } from "@remix-run/react";
 import React, { Fragment } from "react";
-import logo from "~/assets/MDB.svg";
+import logo from "~/assets/rmb.png";
 
 function Header() {
   const links = [
@@ -25,9 +25,7 @@ function Header() {
     <header className="py-6 w-full px-28 flex flex-row items-center gap-x-4">
       <Link to={"/"}>
         <div className="flex flex-row items-center">
-          <span className="text-3xl font-extrabold text-primary-black">
-            RMB.
-          </span>
+          <img src={logo} alt="RMB" className="w-32 h-14 object-contain" />
         </div>
       </Link>
 
