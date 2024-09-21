@@ -14,14 +14,14 @@
   box-shadow: 0.313rem 0.313rem 0 0 #fff;
 } */
 
-.test {
-  --r: 24px; /* the radius */
-  --s: 2rem; /* the size of the corner*/
+.left-inverted-radius {
+  --r: 30px; /* the radius */
+  --s: 60px; /* the size of the corner*/
   --_m: /calc(2 * var(--r)) calc(2 * var(--r)) radial-gradient(
       #000 70%,
       #0000 72%
     ) no-repeat;
-  /* mask: right calc(var(--s) + var(--r)) top 0 var(--_m),
+  mask: right calc(var(--s) + var(--r)) top 0 var(--_m),
     right calc(var(--s) + var(--r)) var(--_m),
     radial-gradient(var(--s) at 100% 0, #0000 99%, #000 101%)
       calc(-1 * var(--r)) var(--r) no-repeat,
@@ -29,7 +29,7 @@
       at calc(100% - var(--s) - 2 * var(--r)) calc(var(--s) + 2 * var(--r)),
       #0000 25%,
       #000 0
-    ); */
+    );
 }
 
 .hero-box-image::after {

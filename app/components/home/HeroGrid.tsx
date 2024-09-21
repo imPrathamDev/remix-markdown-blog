@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import { divideLines } from "~/helpers/generalHelper";
 import bg from "~/assets/background.jpg";
+import fire from "~/assets/fire.png";
 import moment from "moment";
 
 function HeroGrid({
@@ -18,11 +19,11 @@ function HeroGrid({
     return divideLines(blog.data.title);
   }, [blog]);
   return (
-    <div className="col-span-2 group row-span-2">
-      <div className="hero-box-image h-[65vh] w-full bg-primary-pink rounded-t-3xl rounded-br-3xl  overflow-hidden relative">
+    <div className="col-span-3 group row-span-3">
+      <div className="hero-box-image h-[70vh] w-full bg-primary-pink rounded-t-3xl rounded-br-3xl  overflow-hidden relative">
         <img src={bg} alt="Background" className="w-full h-full object-cover" />
-        <div className="absolute top-3 right-3 w-12 h-12 rounded-full flex justify-center items-center bg-primary-white/0 backdrop-blur-sm text-primary-white">
-          <svg
+        <div className="absolute top-3 left-3 w-12 h-12 rounded-full flex justify-center items-center bg-primary-white/0 backdrop-blur-sm text-primary-white">
+          {/* <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -35,7 +36,8 @@ function HeroGrid({
               strokeLinejoin="round"
               d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
             />
-          </svg>
+          </svg> */}
+          <img src={fire} alt="Fire Emoji" className="object-contain size-6" />
         </div>
         <div className="absolute bottom-0 w-4/6 h-[10vh]">
           <div className="w-fit relative">

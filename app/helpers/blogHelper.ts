@@ -19,7 +19,7 @@ export const getBlogs = async ({
     return {
       id,
       data: matterResult.data,
-      ...(showContent && { content: matterResult.content.substring(0, 160) }),
+      ...(showContent && { content: matterResult.content }),
     };
   });
 

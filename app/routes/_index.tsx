@@ -3,6 +3,7 @@ import { useLoaderData } from "@remix-run/react";
 import { getBlogs } from "~/helpers/blogHelper";
 import moment from "moment";
 import HeroGrid from "~/components/home/HeroGrid";
+import HeroSummaryPost from "~/components/home/HeroSummaryPost";
 export const meta: MetaFunction = () => {
   return [
     { title: "Remix Markdown Blog" },
@@ -14,7 +15,7 @@ export const meta: MetaFunction = () => {
 };
 
 export const loader = async () => {
-  const blogs = await getBlogs({});
+  const blogs = await getBlogs({ showContent: true });
   return json({ ok: true, blogs });
 };
 
@@ -27,12 +28,12 @@ export default function Index() {
         <h2 className="text-5xl font-extrabold text-primary-black my-2">
           BLOG
         </h2>
-        <div className="mt-8 grid grid-cols-5 gap-1 w-full">
+        <div className="mt-8 grid grid-cols-7 gap-1 w-full">
           <HeroGrid blog={data.blogs[0]} />
-          <div className="col-span-2 h-[35vh] bg-primary-alt-green rounded-3xl grid-"></div>
-          <div className="h-[35vh] bg-primary-pink rounded-3xl"></div>
-          <div className="col-span-1 min-h-14 h-full bg-primary-green rounded-3xl"></div>
-          <div className="h-[35vh] bg-primary-alt-green rounded-3xl"></div>
+          <HeroSummaryPost blogPost={data.blogs[1]} />
+          <div className="row-span-2 min-h-[35vh] h-full bg-primary-pink rounded-3xl"></div>
+          <div className="col-span-2 min-h-14 h-full bg-primary-green rounded-3xl"></div>
+          <div className="col-span-2 min-h-14 h-full bg-primary-alt-green rounded-3xl"></div>
         </div>
       </section>
     </div>

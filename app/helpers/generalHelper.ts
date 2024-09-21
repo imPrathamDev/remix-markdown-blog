@@ -15,3 +15,15 @@ export const divideLines = (text: string) => {
 
   return [firstLine, secondLine];
 };
+
+export function getH2HeadingsFromMD(markdown: string): string[] {
+  const regex = /^##\s+(.+)$/gm;
+  const headings: string[] = [];
+  let match;
+
+  while ((match = regex.exec(markdown)) !== null) {
+    headings.push(match[1].trim());
+  }
+
+  return headings;
+}
