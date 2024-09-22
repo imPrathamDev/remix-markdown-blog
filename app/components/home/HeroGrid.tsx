@@ -19,8 +19,8 @@ function HeroGrid({
     return divideLines(blog.data.title);
   }, [blog]);
   return (
-    <div className="col-span-3 group row-span-3">
-      <div className="hero-box-image h-[70vh] w-full bg-primary-pink rounded-t-3xl rounded-br-3xl  overflow-hidden relative">
+    <div className="row-span-2 col-span-2 lg:col-span-3 lg:row-span-3 group">
+      <div className="hero-box-image h-[45vh] lg:h-[70vh] w-full bg-primary-pink rounded-t-3xl rounded-br-3xl  overflow-hidden relative">
         <img src={bg} alt="Background" className="w-full h-full object-cover" />
         <div className="absolute top-3 left-3 w-12 h-12 rounded-full flex justify-center items-center bg-primary-white/0 backdrop-blur-sm text-primary-white">
           {/* <svg
@@ -56,9 +56,9 @@ function HeroGrid({
           </div>
           <div className="w-fit relative">
             <div
-              className={`bg-primary-white pl-2 rounded-tr-2xl w-fit pr-8 py-2 firstLine`}
+              className={`bg-primary-white pl-1 lg:pl-2 rounded-tr-2xl w-fit pr-1 lg:pr-8 py-2 firstLine`}
             >
-              <h2 className="truncate text-4xl text-primary-black font-medium">
+              <h2 className="truncate text-xl lg:text-4xl text-primary-black font-extrabold lg:font-medium">
                 {lines[0]}
               </h2>
             </div>
@@ -66,9 +66,9 @@ function HeroGrid({
         </div>
       </div>
       <div
-        className={`bg-primary-white pl-2 rounded-tr-2xl pr-8 pt-2 pb-4 secondLine`}
+        className={`bg-primary-white pl-1 lg:pl-2 rounded-tr-2xl pr-8 pt-2 pb-4 secondLine`}
       >
-        <h2 className="truncate text-4xl text-primary-black font-medium">
+        <h2 className="truncate text-xl lg:text-4xl font-extrabold lg:font-medium">
           {lines[1]}
         </h2>
       </div>

@@ -22,14 +22,18 @@ function Header() {
     },
   ];
   return (
-    <header className="py-6 w-full px-28 flex flex-row items-center gap-x-4">
+    <header className="py-4 px-4 lg:py-6 w-full lg:px-28 flex lg:flex-row items-center gap-x-4">
       <Link to={"/"}>
         <div className="flex flex-row items-center">
-          <img src={logo} alt="RMB" className="w-32 h-14 object-contain" />
+          <img
+            src={logo}
+            alt="RMB"
+            className="w-24 h-12 lg:w-32 lg:h-14 object-contain"
+          />
         </div>
       </Link>
 
-      <div className="pl-8 rounded-full w-full border border-primary-gray flex flex-row items-centers">
+      <div className="hidden pl-8 rounded-full w-full border border-primary-gray lg:flex flex-row items-centers">
         <ul className="flex flex-row items-center gap-x-4 flex-1 py-3">
           {links.map((link, index) => (
             <Fragment key={link.title + index}>
@@ -85,7 +89,7 @@ function Header() {
         </div>
       </div>
 
-      <Link to={"/"}>
+      <Link to={"/"} className="hidden lg:block">
         <div className="px-6 py-3 rounded-full border border-primary-gray flex flex-row items-centers gap-x-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"

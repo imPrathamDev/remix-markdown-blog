@@ -17,19 +17,19 @@ function HeroSummaryPost({
   }, [blogPost]);
 
   return (
-    <div className="row-span-2 col-span-3 relative">
-      <div className="min-h-[35vh] h-full bg-primary-alt-green rounded-3xl left-inverted-radius flex flex-col">
-        <div className="py-8 px-6 flex-1">
+    <div className="col-span-2 row-span-1 lg:row-span-2 lg:col-span-3 relative">
+      <div className="lg:min-h-[35vh] lg:h-full bg-primary-alt-green rounded-3xl left-inverted-radius flex flex-col">
+        <div className="py-6 px-4 lg:py-8 lg:px-6 flex-1">
           <div className="flex flex-row items-center gap-x-2 text-sm text-primary-black">
             <span className="font-bold">
               Category .{" "}
               <span className="font-normal">{blogPost.data.categories[0]}</span>
             </span>
           </div>
-          <h2 className="text-5xl font-extrabold text-balance mt-4">
+          <h2 className="text-3xl lg:text-5xl font-extrabold text-balance mt-4">
             {blogPost.data.title}
           </h2>
-          <p className="text-gray-600 font-light mt-4 text-balance">
+          <p className="text-gray-600 text-sm lg:text-base font-light mt-2 lg:mt-4 text-balance">
             {blogPost.data.description}
           </p>
         </div>
@@ -37,7 +37,7 @@ function HeroSummaryPost({
           {headings.map((heading, index) => (
             <li
               key={heading + index}
-              className="px-6 py-3 border-t-2 border-primary-black text-xl uppercase font-bold truncate flex items-center gap-x-2"
+              className="px-2 py-1.5 lg:px-6 lg:py-3 border-t-2 border-primary-black text-base lg:text-xl uppercase font-bold truncate flex items-center gap-x-2"
             >
               {heading}{" "}
               <svg
