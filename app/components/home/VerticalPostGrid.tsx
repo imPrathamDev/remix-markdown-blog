@@ -1,3 +1,4 @@
+import { Link } from "@remix-run/react";
 import moment from "moment";
 import React from "react";
 
@@ -31,9 +32,12 @@ function VerticalPostGrid({
       <div className="w-40 h-40 lg:w-64 lg:h-64 bg-primary-green rounded-full absolute -bottom-10 -right-12 group-hover:scale-150 transition-all"></div>
 
       <div className="absolute bottom-4 right-4">
-        <span className="text-xs lg:text-base font-semibold underline">
+        <Link
+          to={"/blog/" + blogPost.id}
+          className="text-xs lg:text-base font-semibold underline"
+        >
           Read Article
-        </span>
+        </Link>
       </div>
     </div>
   );

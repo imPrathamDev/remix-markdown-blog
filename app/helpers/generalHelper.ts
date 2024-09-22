@@ -27,3 +27,12 @@ export function getH2HeadingsFromMD(markdown: string): string[] {
 
   return headings;
 }
+
+export function createSlug(input: string): string {
+  return input
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "") // Remove special characters
+    .replace(/[\s_-]+/g, "-") // Replace spaces, underscores, and hyphens with a single hyphen
+    .replace(/^-+|-+$/g, ""); // Remove leading and trailing hyphens
+}

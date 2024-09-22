@@ -1,5 +1,6 @@
+import { Link } from "@remix-run/react";
 import React, { useMemo } from "react";
-import { getH2HeadingsFromMD } from "~/helpers/generalHelper";
+import { createSlug, getH2HeadingsFromMD } from "~/helpers/generalHelper";
 
 function HeroSummaryPost({
   blogPost,
@@ -26,16 +27,19 @@ function HeroSummaryPost({
               <span className="font-normal">{blogPost.data.categories[0]}</span>
             </span>
           </div>
-          <h2 className="text-3xl lg:text-5xl font-extrabold text-balance mt-4">
-            {blogPost.data.title}
-          </h2>
+          <Link to={"/blog/" + blogPost.id}>
+            <h2 className="text-3xl lg:text-5xl font-extrabold text-balance mt-4">
+              {blogPost.data.title}
+            </h2>
+          </Link>
           <p className="text-gray-600 text-sm lg:text-base font-light mt-2 lg:mt-4 text-balance">
             {blogPost.data.description}
           </p>
         </div>
         <ul className="">
           {headings.map((heading, index) => (
-            <li
+            <Link
+              to={"/blog/" + blogPost.id + "#" + createSlug(heading)}
               key={heading + index}
               className="px-2 py-1.5 lg:px-6 lg:py-3 border-t-2 border-primary-black text-base lg:text-xl uppercase font-bold truncate flex items-center gap-x-2"
             >
@@ -54,11 +58,14 @@ function HeroSummaryPost({
                   d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
                 />
               </svg>
-            </li>
+            </Link>
           ))}
         </ul>
       </div>
-      <div className="absolute top-1 right-1 rounded-full bg-primary-alt-green w-[4.5rem] h-[4.5rem] text-primary-black flex justify-center items-center">
+      <Link
+        to={"/blog/" + blogPost.id}
+        className="absolute top-1 right-1 rounded-full bg-primary-alt-green w-[4.5rem] h-[4.5rem] text-primary-black flex justify-center items-center"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -73,7 +80,7 @@ function HeroSummaryPost({
             d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
           />
         </svg>
-      </div>
+      </Link>
     </div>
   );
 }

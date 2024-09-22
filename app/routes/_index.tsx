@@ -29,7 +29,7 @@ export default function Index() {
   const data = useLoaderData<typeof loader>();
 
   return (
-    <div className="p-4">
+    <div className="p-2 lg:p-4">
       <section className="lg:px-28 lg:py-2">
         <h2 className="text-4xl lg:text-5xl font-extrabold text-primary-black my-2">
           BLOG
