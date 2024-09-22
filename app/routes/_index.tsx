@@ -4,6 +4,7 @@ import { getBlogs } from "~/helpers/blogHelper";
 import moment from "moment";
 import HeroGrid from "~/components/home/HeroGrid";
 import HeroSummaryPost from "~/components/home/HeroSummaryPost";
+import VerticalPostGrid from "~/components/home/VerticalPostGrid";
 export const meta: MetaFunction = () => {
   return [
     { title: "Remix Markdown Blog" },
@@ -31,9 +32,9 @@ export default function Index() {
         <div className="mt-8 grid grid-cols-7 gap-1 w-full">
           <HeroGrid blog={data.blogs[0]} />
           <HeroSummaryPost blogPost={data.blogs[1]} />
-          <div className="row-span-2 min-h-[35vh] h-full bg-primary-pink rounded-3xl"></div>
-          <div className="col-span-2 min-h-14 h-full bg-primary-green rounded-3xl"></div>
-          <div className="col-span-2 min-h-14 h-full bg-primary-alt-green rounded-3xl"></div>
+          <VerticalPostGrid blogPost={data.blogs[2]} />
+          <div className="col-span-2 h-[25vh] bg-primary-green rounded-3xl"></div>
+          <div className="col-span-2 h-[25vh] bg-primary-alt-green rounded-3xl"></div>
         </div>
       </section>
     </div>

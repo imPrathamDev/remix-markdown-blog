@@ -41,7 +41,7 @@ function HeroGrid({
         </div>
         <div className="absolute bottom-0 w-4/6 h-[10vh]">
           <div className="w-fit relative">
-            <div className="flex flex-row items-center gap-x-2 text-xs text-primary-black pt-3 pb-2 px-2 bg-white rounded-tr-2xl test3">
+            <div className="flex flex-row items-center gap-x-2 text-xs text-primary-black pt-3 pb-2 px-2 bg-primary-white rounded-tr-2xl test3">
               <span className="font-bold">
                 Category .{" "}
                 <span className="font-normal">{blog.data.categories[0]}</span>
@@ -56,7 +56,7 @@ function HeroGrid({
           </div>
           <div className="w-fit relative">
             <div
-              className={`bg-white pl-2 rounded-tr-2xl w-fit pr-8 py-2 firstLine`}
+              className={`bg-primary-white pl-2 rounded-tr-2xl w-fit pr-8 py-2 firstLine`}
             >
               <h2 className="truncate text-4xl text-primary-black font-medium">
                 {lines[0]}
@@ -65,7 +65,9 @@ function HeroGrid({
           </div>
         </div>
       </div>
-      <div className={`bg-white pl-2 rounded-tr-2xl pr-8 pt-2 pb-4 secondLine`}>
+      <div
+        className={`bg-primary-white pl-2 rounded-tr-2xl pr-8 pt-2 pb-4 secondLine`}
+      >
         <h2 className="truncate text-4xl text-primary-black font-medium">
           {lines[1]}
         </h2>
