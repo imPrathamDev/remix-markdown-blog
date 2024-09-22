@@ -13,7 +13,7 @@ function VerticalPostGrid({
   };
 }) {
   return (
-    <div className="row-span-2 min-h-[35vh] h-full bg-primary-pink rounded-3xl relative overflow-hidden">
+    <div className="row-span-2 min-h-[35vh] h-full bg-primary-pink rounded-3xl relative overflow-hidden group">
       <span className="font-bold absolute top-4 left-2 text-xs">
         Category .{" "}
         <span className="font-normal">{blogPost.data.categories[0]}</span>
@@ -28,7 +28,7 @@ function VerticalPostGrid({
         </h2>
       </div>
 
-      <div className="w-64 h-64 bg-primary-green rounded-full absolute -bottom-10 -right-12"></div>
+      <div className="w-64 h-64 bg-primary-green rounded-full absolute -bottom-10 -right-12 group-hover:scale-150 transition-all"></div>
 
       <div className="absolute bottom-4 right-4">
         <span className="text-base font-semibold underline">Read Article</span>

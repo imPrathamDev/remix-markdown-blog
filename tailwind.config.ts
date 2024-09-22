@@ -14,6 +14,7 @@ export default {
         "primary-pink": "#d9b6ee",
         "primary-alt-green": "#d1fb96",
         "primary-gray": "#efefef",
+        "primary-yellow": "#fff3b2",
       },
     },
   },

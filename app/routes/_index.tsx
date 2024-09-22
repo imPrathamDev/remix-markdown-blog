@@ -5,6 +5,7 @@ import moment from "moment";
 import HeroGrid from "~/components/home/HeroGrid";
 import HeroSummaryPost from "~/components/home/HeroSummaryPost";
 import VerticalPostGrid from "~/components/home/VerticalPostGrid";
+import CategoryGrid from "~/components/home/CategoryGrid";
 export const meta: MetaFunction = () => {
   return [
     { title: "Remix Markdown Blog" },
@@ -16,8 +17,11 @@ export const meta: MetaFunction = () => {
 };
 
 export const loader = async () => {
-  const blogs = await getBlogs({ showContent: true });
-  return json({ ok: true, blogs });
+  const [blogs, categories] = await Promise.all([
+    getBlogs({ showContent: true }),
+    getBlogs({ showContent: false, fetchItemType: "categories" }),
+  ]);
+  return json({ ok: true, blogs, categories });
 };
 
 export default function Index() {
@@ -34,7 +38,7 @@ export default function Index() {
           <HeroSummaryPost blogPost={data.blogs[1]} />
           <VerticalPostGrid blogPost={data.blogs[2]} />
           <div className="col-span-2 h-[25vh] bg-primary-green rounded-3xl"></div>
-          <div className="col-span-2 h-[25vh] bg-primary-alt-green rounded-3xl"></div>
+          <CategoryGrid categories={data.categories} />
         </div>
       </section>
     </div>

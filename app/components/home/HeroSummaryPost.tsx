@@ -1,5 +1,3 @@
-import { useMatch } from "@remix-run/react";
-import moment from "moment";
 import React, { useMemo } from "react";
 import { getH2HeadingsFromMD } from "~/helpers/generalHelper";
 
@@ -31,7 +29,7 @@ function HeroSummaryPost({
           <h2 className="text-5xl font-extrabold text-balance mt-4">
             {blogPost.data.title}
           </h2>
-          <p className="text-gray-600 font-medium mt-4">
+          <p className="text-gray-600 font-light mt-4 text-balance">
             {blogPost.data.description}
           </p>
         </div>

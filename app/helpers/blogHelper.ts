@@ -7,8 +7,10 @@ const blogsDirectory = path.join(process.cwd(), "blogs");
 
 export const getBlogs = async ({
   showContent = false,
+  fetchItemType = "blogs",
 }: {
   showContent?: boolean;
+  fetchItemType?: "blogs" | "categories" | "authors";
 }) => {
   const fileNames = fs.readdirSync(blogsDirectory);
   const allBlogsData = fileNames.map((fileName) => {
@@ -22,6 +24,16 @@ export const getBlogs = async ({
       ...(showContent && { content: matterResult.content }),
     };
   });
+
+  if (fetchItemType === "categories") {
+    let categories = new Set(allBlogsData.map((b) => b.data.categories).flat());
+    return Array.from(categories);
+  }
+
+  if (fetchItemType === "authors") {
+    let authors = new Set(allBlogsData.map((b) => b.data.author));
+    return Array.from(authors);
+  }
 
   return allBlogsData.sort((a: any, b: any) => {
     if (a.date < b.date) {
