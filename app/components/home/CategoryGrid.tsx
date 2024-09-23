@@ -24,7 +24,7 @@ function CategoryGrid({ categories }: { categories: string[] }) {
           <Link
             to={"/blogs?category=" + encodeURIComponent(category)}
             key={category}
-            className="box px-2 py-1 lg:px-2.5 lg:py-1.5 bg-primary-yellow text-xs lg:text-sm rounded-full"
+            className="box px-2 py-1 lg:px-2.5 lg:py-1.5 bg-primary-yellow text-xs lg:text-sm rounded-full hover:scale-105 transition-transform"
           >
             {category}
           </Link>
