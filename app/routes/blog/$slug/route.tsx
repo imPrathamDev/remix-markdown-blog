@@ -6,6 +6,7 @@ import {
 } from "@remix-run/react";
 import { getBlogBySlug } from "~/helpers/blogHelper";
 import Markdown from "markdown-to-jsx";
+import H2 from "~/components/blog-article-components/H2";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   if (params.slug) {
@@ -60,11 +61,26 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 function BlogPage() {
   const data = useLoaderData<typeof loader>();
   return (
-    <div className="p-2">
-      <h1 className="text-2xl my-1">{data.blog.data.title}</h1>
-      <article className="prose lg:prose-xl">
-        <Markdown>{data.blog.content}</Markdown>
-      </article>
+    <div className="container mx-auto">
+      <div className="mx-auto max-w-6xl flex">
+        <div>Hello</div>
+        <div>
+          <h1 className="text-2xl my-1">{data.blog.data.title}</h1>
+          <article className="prose">
+            <Markdown
+              options={{
+                overrides: {
+                  h2: {
+                    component: H2,
+                  },
+                },
+              }}
+            >
+              {data.blog.content}
+            </Markdown>
+          </article>
+        </div>
+      </div>
     </div>
   );
 }

@@ -31,12 +31,16 @@ function Header() {
     ];
   }, []);
 
-  useEffect(() => {
+  // useEffect(() => {
+
+  // }, []);
+
+  useGSAP(() => {
     const showAnim = gsap
       .from(".main-tool-bar", {
         yPercent: -100,
         paused: true,
-        duration: 0.2,
+        duration: 0.25,
       })
       .progress(1);
     ScrollTrigger.create({
@@ -46,19 +50,7 @@ function Header() {
         self.direction === -1 ? showAnim.play() : showAnim.reverse();
       },
     });
-  }, []);
-
-  // useGSAP(
-  //   () => {
-
-  //     if (typeof window !== "undefined") {
-
-  //     }
-  //   },
-  //   {
-  //     scope: header,
-  //   }
-  // );
+  });
 
   return (
     <header
