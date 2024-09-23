@@ -7,6 +7,7 @@ import {
 import { getBlogBySlug } from "~/helpers/blogHelper";
 import Markdown from "markdown-to-jsx";
 import H2 from "~/components/blog-article-components/H2";
+import TagList from "~/components/blog-page/TagList";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   if (params.slug) {
@@ -62,8 +63,8 @@ function BlogPage() {
   const data = useLoaderData<typeof loader>();
   return (
     <div className="container mx-auto">
-      <div className="mx-auto max-w-6xl flex">
-        <div>Hello</div>
+      <div className="mx-auto max-w-6xl flex gap-x-4">
+        <TagList content={data.blog.content} />
         <div>
           <h1 className="text-2xl my-1">{data.blog.data.title}</h1>
           <article className="prose">
@@ -72,9 +73,6 @@ function BlogPage() {
                 overrides: {
                   h2: {
                     component: H2,
-                    // props: {
-                    //   className: ""
-                    // }
                   },
                 },
               }}
