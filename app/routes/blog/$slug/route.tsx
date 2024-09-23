@@ -72,6 +72,9 @@ function BlogPage() {
                 overrides: {
                   h2: {
                     component: H2,
+                    // props: {
+                    //   className: ""
+                    // }
                   },
                 },
               }}
