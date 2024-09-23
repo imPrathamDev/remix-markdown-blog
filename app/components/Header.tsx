@@ -1,28 +1,70 @@
 import { Link, NavLink } from "@remix-run/react";
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useMemo, useRef } from "react";
 import logo from "~/assets/rmb.png";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP);
 
 function Header() {
-  const links = [
-    {
-      title: "Home",
-      to: "/",
-    },
-    {
-      title: "README.md",
-      to: "/readme",
-    },
-    {
-      title: "About Me",
-      to: "/about",
-    },
-    {
-      title: "Contact",
-      to: "/contact",
-    },
-  ];
+  const header = useRef();
+  const links = useMemo(() => {
+    return [
+      {
+        title: "Home",
+        to: "/",
+      },
+      {
+        title: "README.md",
+        to: "/readme",
+      },
+      {
+        title: "About Me",
+        to: "/about",
+      },
+      {
+        title: "Contact",
+        to: "/contact",
+      },
+    ];
+  }, []);
+
+  useEffect(() => {
+    const showAnim = gsap
+      .from(".main-tool-bar", {
+        yPercent: -100,
+        paused: true,
+        duration: 0.2,
+      })
+      .progress(1);
+    ScrollTrigger.create({
+      start: "top top",
+      end: 99999,
+      onUpdate: (self) => {
+        self.direction === -1 ? showAnim.play() : showAnim.reverse();
+      },
+    });
+  }, []);
+
+  // useGSAP(
+  //   () => {
+
+  //     if (typeof window !== "undefined") {
+
+  //     }
+  //   },
+  //   {
+  //     scope: header,
+  //   }
+  // );
+
   return (
-    <header className="py-4 px-4 lg:py-6 w-full lg:px-28 flex lg:flex-row items-center gap-x-4">
+    <header
+      ref={header as any}
+      className="main-tool-bar py-4 px-4 lg:py-6 w-full lg:px-28 flex lg:flex-row items-center gap-x-4 sticky top-0 left-0 transition-all backdrop-blur-sm"
+    >
       <Link to={"/"}>
         <div className="flex flex-row items-center">
           <img
@@ -33,7 +75,7 @@ function Header() {
         </div>
       </Link>
 
-      <div className="hidden pl-8 rounded-full w-full border border-primary-gray lg:flex flex-row items-centers">
+      <div className="hidden pl-8 rounded-full w-full border border-primary-gray lg:flex flex-row items-centers bg-primary-white">
         <ul className="flex flex-row items-center gap-x-4 flex-1 py-3">
           {links.map((link, index) => (
             <Fragment key={link.title + index}>
