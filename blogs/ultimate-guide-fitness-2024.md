@@ -8,7 +8,7 @@ categories:
   - "Fitness"
   - "Health"
   - "Wellness"
-thumbnail: "/public/fitness-guide-thumbnail.png"
+thumbnail: "/fitness-guide-thumbnail.png"
 ---
 
 ## The Ultimate Guide to Fitness: Achieve Your Health Goals in 2024

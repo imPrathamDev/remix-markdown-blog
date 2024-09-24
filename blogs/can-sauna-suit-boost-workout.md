@@ -8,7 +8,7 @@ categories:
   - "Fitness"
   - "Sauna Suits"
   - "Exercise Performance"
-thumbnail: "/public/sauna-suit-workout.png"
+thumbnail: "/sauna-suit-workout.png"
 ---
 
 ## Can a Sauna Suit Really Boost Your Workout?

@@ -8,7 +8,7 @@ categories:
   - "Yoga"
   - "Wellness"
   - "Mindfulness"
-thumbnail: "/public/yoga-guide-thumbnail.png"
+thumbnail: "/yoga-guide-thumbnail.png"
 ---
 
 ## The Complete Guide to Yoga: Benefits, Styles, and How to Start

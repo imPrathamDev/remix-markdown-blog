@@ -8,7 +8,7 @@ categories:
   - "Fitness"
   - "Gym"
   - "Strength Training"
-thumbnail: "/public/gym-guide-thumbnail.png"
+thumbnail: "/gym-guide-thumbnail.png"
 ---
 
 ## The Ultimate Gym Guide: How to Start, Build Muscle, and Stay Consistent

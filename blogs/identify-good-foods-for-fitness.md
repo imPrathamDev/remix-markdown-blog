@@ -8,7 +8,7 @@ categories:
   - "Nutrition"
   - "Fitness"
   - "Healthy Eating"
-thumbnail: "/public/healthy-food-fitness.png"
+thumbnail: "/healthy-food-fitness.png"
 ---
 
 ## How to Identify Good Foods for Optimal Fitness
