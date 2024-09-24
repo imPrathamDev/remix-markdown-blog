@@ -8,6 +8,7 @@ import {
 import "./tailwind.css";
 import { LinksFunction } from "@remix-run/node";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export const links: LinksFunction = () => {
   return [
@@ -34,6 +35,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <body className="font-inter text-primary-black bg-primary-white scroll-smooth">
         <Header />
         {children}
+        <Footer />
         <ScrollRestoration />
         <Scripts />
       </body>
