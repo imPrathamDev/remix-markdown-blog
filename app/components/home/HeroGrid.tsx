@@ -25,7 +25,11 @@ function HeroGrid({
       className="row-span-2 col-span-2 lg:col-span-3 lg:row-span-3 group"
     >
       <div className="hero-box-image h-[45vh] lg:h-[70vh] w-full bg-primary-pink rounded-t-3xl rounded-br-3xl  overflow-hidden relative">
-        <img src={bg} alt="Background" className="w-full h-full object-cover" />
+        <img
+          src={blog.data.thumbnail}
+          alt={blog.data.title + " By " + blog.data.author}
+          className="w-full h-full object-cover"
+        />
         <div className="absolute top-3 left-3 w-12 h-12 rounded-full flex justify-center items-center bg-primary-white/0 backdrop-blur-sm text-primary-white">
           {/* <svg
             xmlns="http://www.w3.org/2000/svg"
