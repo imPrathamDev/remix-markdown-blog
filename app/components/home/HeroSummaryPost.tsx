@@ -1,5 +1,5 @@
 import { Link } from "@remix-run/react";
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { createSlug, getH2HeadingsFromMD } from "~/helpers/generalHelper";
 
 function HeroSummaryPost({
@@ -16,6 +16,8 @@ function HeroSummaryPost({
   const headings = useMemo(() => {
     return getH2HeadingsFromMD(blogPost.content ?? "");
   }, [blogPost]);
+
+  useEffect(() => {}, []);
 
   return (
     <div className="col-span-2 row-span-1 lg:row-span-2 lg:col-span-3 relative">
@@ -41,23 +43,30 @@ function HeroSummaryPost({
             <Link
               to={"/blog/" + blogPost.id + "#" + createSlug(heading)}
               key={heading + index}
-              className="px-2 py-1.5 lg:px-6 lg:py-3 border-t-2 border-primary-black text-base lg:text-xl uppercase font-bold truncate flex items-center gap-x-2"
             >
-              {heading}{" "}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="size-6 ml-auto"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-                />
-              </svg>
+              <div className="px-2 py-1.5 lg:px-6 lg:py-3 border-t-2 border-primary-black relative text-base lg:text-xl uppercase font-bold group overflow-hidden">
+                <span
+                  style={{ zIndex: -100 }}
+                  className="flair absolute bottom-0 translate-y-24 left-0 w-full h-full bg-primary-pink transition-all duration-300 group-hover:translate-y-0"
+                ></span>
+                <span className=" truncate flex items-center gap-x-2 ">
+                  {heading}{" "}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="size-6 ml-auto"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
+                    />
+                  </svg>
+                </span>
+              </div>
             </Link>
           ))}
         </ul>

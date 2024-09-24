@@ -11,6 +11,10 @@ import TagList from "~/components/blog-page/TagList";
 import BlogThumbnailItem from "~/components/blog-page/BlogThumbnailItem";
 import moment from "moment";
 import ShareButton from "~/components/blog-page/ShareButton";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+
+gsap.registerPlugin(useGSAP);
 
 export async function loader({ params }: LoaderFunctionArgs) {
   if (params.slug) {
@@ -64,6 +68,9 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 
 function BlogPage() {
   const data = useLoaderData<typeof loader>();
+
+  useGSAP(() => {}, {});
+
   return (
     <div className="container mx-auto">
       <div className="py-4">
