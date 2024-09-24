@@ -36,3 +36,39 @@ export function createSlug(input: string): string {
     .replace(/[\s_-]+/g, "-") // Replace spaces, underscores, and hyphens with a single hyphen
     .replace(/^-+|-+$/g, ""); // Remove leading and trailing hyphens
 }
+
+export interface Heading {
+  text: string;
+  children: Heading[];
+}
+
+export function getHeadingsFromMD(markdown: string): Heading[] {
+  const headingRegex = /^(#{2,4})\s+(.+)$/gm; // Matches h2, h3, h4
+  const headings: Heading[] = [];
+  const stack: { level: number; heading: Heading }[] = [];
+  let match;
+
+  while ((match = headingRegex.exec(markdown)) !== null) {
+    const level = match[1].length; // h2 => 2, h3 => 3, h4 => 4
+    const text = match[2].trim();
+    const newHeading: Heading = { text, children: [] };
+
+    // Find the appropriate parent for the current heading
+    while (stack.length > 0 && stack[stack.length - 1].level >= level) {
+      stack.pop();
+    }
+
+    if (stack.length === 0) {
+      // If no parent, it's an h2
+      headings.push(newHeading);
+    } else {
+      // Add as a child of the last item in the stack
+      stack[stack.length - 1].heading.children.push(newHeading);
+    }
+
+    // Add the current heading to the stack
+    stack.push({ level, heading: newHeading });
+  }
+
+  return headings;
+}
