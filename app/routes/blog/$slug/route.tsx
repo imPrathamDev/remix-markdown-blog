@@ -10,6 +10,7 @@ import H2 from "~/components/blog-article-components/H2";
 import TagList from "~/components/blog-page/TagList";
 import BlogThumbnailItem from "~/components/blog-page/BlogThumbnailItem";
 import moment from "moment";
+import ShareButton from "~/components/blog-page/ShareButton";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   if (params.slug) {
@@ -87,6 +88,7 @@ function BlogPage() {
                 title={moment(data.blog.data.date).format("Do MMM YYYY")}
               />
             </div>
+            <ShareButton />
           </div>
         </div>
       </div>
