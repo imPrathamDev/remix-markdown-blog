@@ -13,6 +13,7 @@ import moment from "moment";
 import ShareButton from "~/components/blog-page/ShareButton";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
+import EditButton from "~/components/blog-page/EditButton";
 
 gsap.registerPlugin(useGSAP);
 
@@ -126,6 +127,9 @@ function BlogPage() {
               {data.blog.content}
             </Markdown>
           </article>
+          <div className="my-4 flex items-center justify-end">
+            <EditButton id={data.blog.data.slug + ".md"} />
+          </div>
         </div>
       </div>
     </div>
