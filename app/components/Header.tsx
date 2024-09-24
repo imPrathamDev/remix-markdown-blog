@@ -55,7 +55,7 @@ function Header() {
   return (
     <header
       ref={header as any}
-      className="main-tool-bar py-4 px-4 lg:py-6 w-full lg:px-28 flex lg:flex-row items-center gap-x-4 sticky top-0 left-0 transition-all backdrop-blur-sm"
+      className="main-tool-bar py-4 px-4 lg:py-6 w-full lg:px-28 flex lg:flex-row items-center gap-x-4 sticky top-0 left-0 transition-all backdrop-blur-sm z-10"
     >
       <Link to={"/"}>
         <div className="flex flex-row items-center">

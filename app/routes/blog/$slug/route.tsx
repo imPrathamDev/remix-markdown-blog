@@ -8,6 +8,8 @@ import { getBlogBySlug } from "~/helpers/blogHelper";
 import Markdown from "markdown-to-jsx";
 import H2 from "~/components/blog-article-components/H2";
 import TagList from "~/components/blog-page/TagList";
+import BlogThumbnailItem from "~/components/blog-page/BlogThumbnailItem";
+import moment from "moment";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   if (params.slug) {
@@ -68,7 +70,25 @@ function BlogPage() {
         <p className="text-lg font-light text-gray-500">
           {data.blog.data.description}
         </p>
-        <img src={data.blog.data.thumbnail} alt="" className="" />
+        <div className="relative rounded-3xl overflow-hidden mt-4">
+          <img
+            src={data.blog.data.thumbnail}
+            alt={data.blog.data.title + " By " + data.blog.data.author}
+            className="w-full h-[65vh] object-cover"
+          />
+          <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-t from-primary-black/40 to-transparent flex items-end justify-between px-14 pb-6">
+            <div className="flex items-center gap-x-8">
+              <BlogThumbnailItem
+                subtitle="Written By"
+                title={data.blog.data.author}
+              />
+              <BlogThumbnailItem
+                subtitle="Published On"
+                title={moment(data.blog.data.date).format("Do MMM YYYY")}
+              />
+            </div>
+          </div>
+        </div>
       </div>
       <div className="mx-auto max-w-7xl grid grid-cols-4 gap-x-10">
         <div className="col-span-1">
