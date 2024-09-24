@@ -6,7 +6,7 @@ import {
 } from "@remix-run/react";
 import { getBlogBySlug } from "~/helpers/blogHelper";
 import Markdown from "markdown-to-jsx";
-import H2 from "~/components/blog-article-components/H2";
+import Heading from "~/components/blog-article-components/Heading";
 import TagList from "~/components/blog-page/TagList";
 import BlogThumbnailItem from "~/components/blog-page/BlogThumbnailItem";
 import moment from "moment";
@@ -109,7 +109,16 @@ function BlogPage() {
               options={{
                 overrides: {
                   h2: {
-                    component: H2,
+                    component: Heading,
+                    props: {
+                      headingType: "h2",
+                    },
+                  },
+                  h3: {
+                    component: Heading,
+                    props: {
+                      headingType: "h3",
+                    },
                   },
                 },
               }}
