@@ -8,7 +8,7 @@ categories:
   - "TypeScript"
   - "JavaScript"
   - "Web Development"
-thumbnail: "/public/typescript-logo.png"
+thumbnail: "/public/picture.jpg"
 ---
 
 # TypeScript: Supercharging Your JavaScript Development

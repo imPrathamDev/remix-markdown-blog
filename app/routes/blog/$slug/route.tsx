@@ -63,11 +63,19 @@ function BlogPage() {
   const data = useLoaderData<typeof loader>();
   return (
     <div className="container mx-auto">
-      <div className="mx-auto max-w-6xl flex gap-x-4">
-        <TagList content={data.blog.content} />
-        <div>
-          <h1 className="text-2xl my-1">{data.blog.data.title}</h1>
-          <article className="prose">
+      <div className="py-4">
+        <h1 className="text-6xl font-semibold my-2">{data.blog.data.title}</h1>
+        <p className="text-lg font-light text-gray-500">
+          {data.blog.data.description}
+        </p>
+        <img src={data.blog.data.thumbnail} alt="" className="" />
+      </div>
+      <div className="mx-auto max-w-7xl grid grid-cols-4 gap-x-10">
+        <div className="col-span-1">
+          <TagList content={data.blog.content} />
+        </div>
+        <div className="col-span-3">
+          <article className="prose max-w-none">
             <Markdown
               options={{
                 overrides: {
