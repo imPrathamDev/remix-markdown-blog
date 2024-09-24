@@ -1,6 +1,10 @@
 import { Link } from "@remix-run/react";
 import React, { useEffect, useMemo } from "react";
-import { createSlug, getH2HeadingsFromMD } from "~/helpers/generalHelper";
+import {
+  createSlug,
+  getH2HeadingsFromMD,
+  getHeadingsFromMD,
+} from "~/helpers/generalHelper";
 
 function HeroSummaryPost({
   blogPost,
@@ -14,10 +18,12 @@ function HeroSummaryPost({
   };
 }) {
   const headings = useMemo(() => {
-    return getH2HeadingsFromMD(blogPost.content ?? "");
+    return getHeadingsFromMD(blogPost.content ?? "")
+      .map((h) => [h.text, h.children.map((g) => g.text)])
+      .flat()
+      .flat()
+      .slice(0, 3);
   }, [blogPost]);
-
-  useEffect(() => {}, []);
 
   return (
     <div className="col-span-2 row-span-1 lg:row-span-2 lg:col-span-3 relative">
