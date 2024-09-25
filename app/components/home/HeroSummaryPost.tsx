@@ -1,10 +1,6 @@
 import { Link, unstable_useViewTransitionState } from "@remix-run/react";
-import React, { useEffect, useMemo } from "react";
-import {
-  createSlug,
-  getH2HeadingsFromMD,
-  getHeadingsFromMD,
-} from "~/helpers/generalHelper";
+import React, { useMemo } from "react";
+import { createSlug, getHeadingsFromMD } from "~/helpers/generalHelper";
 
 function HeroSummaryPost({
   blogPost,
