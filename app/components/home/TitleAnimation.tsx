@@ -1,17 +1,35 @@
-import React, { useMemo } from "react";
+import { useGSAP } from "@gsap/react";
+import React, { useMemo, useRef } from "react";
 import { divideLines } from "~/helpers/generalHelper";
+import { gsap, Power2 } from "gsap";
+gsap.registerPlugin(useGSAP);
 
 function TitleAnimation({ title }: { title: string }) {
+  const container = useRef();
   const [firstLine, secondLine] = useMemo(() => {
     return divideLines(title, 1);
   }, [title]);
+
+  useGSAP(
+    () => {
+      if (container.current) {
+        gsap.from(container.current, {
+          y: 500,
+          duration: 1.2,
+          ease: Power2.easeInOut,
+        });
+      }
+    },
+    { scope: container }
+  );
+
   return (
-    <h2 className="text-4xl font-bold">
+    <h2 ref={container as any} className="text-4xl font-bold">
       <div className="px-5 pt-3 bg-primary-white w-fit rounded-t-2xl relative ta-firstLine">
-        <span>{firstLine}</span>
+        <span className="title-text transform">{firstLine}</span>
       </div>
       <div className="px-5 pb-3 pt-2 bg-primary-white w-fit rounded-b-2xl rounded-tr-2xl">
-        <span className="">{secondLine}</span>
+        <span className="title-text">{secondLine}</span>
       </div>
     </h2>
   );
