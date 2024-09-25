@@ -1,7 +1,7 @@
-export const divideLines = (text: string) => {
+export const divideLines = (text: string, size: number = 2.5) => {
   const words = text.split(" ");
   const totalWords = words.length;
-  let midPoint = Math.floor(totalWords / 2.5); // Use 1/3 instead of 1/2 for fewer words on first line
+  let midPoint = Math.floor(totalWords / size); // Use 1/3 instead of 1/2 for fewer words on first line
 
   let firstLine = words.slice(0, midPoint).join(" ");
   let secondLine = words.slice(midPoint).join(" ");

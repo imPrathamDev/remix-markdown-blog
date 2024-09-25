@@ -35,7 +35,7 @@ export default function Index() {
         <HeroGrid blog={data.blogs[0]} />
         <HeroSummaryPost blogPost={data.blogs[1]} />
         <VerticalPostGrid blogPost={data.blogs[2]} />
-        <HorizontalPostGrid blogPost={data.blogs[3]} />
+        <HorizontalPostGrid blogPost={data.blogs[4]} />
         <CategoryGrid categories={data.categories} />
       </section>
 
