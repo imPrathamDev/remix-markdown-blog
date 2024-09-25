@@ -16,6 +16,7 @@ export const divideLines = (text: string, size: number = 2.5) => {
   return [firstLine, secondLine];
 };
 
+// I am not using this function
 export function getH2HeadingsFromMD(markdown: string): string[] {
   const regex = /^##\s+(.+)$/gm;
   const headings: string[] = [];

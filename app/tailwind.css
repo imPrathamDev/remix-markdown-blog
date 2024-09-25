@@ -104,6 +104,28 @@
   box-shadow: -8px 4px #fff; */
 }
 
+.ta-firstLine::before {
+  content: "";
+  position: absolute;
+  bottom: -0.048rem;
+  right: -1.4rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  background: transparent;
+  border-bottom-left-radius: 100px;
+  box-shadow: -8px 4px var(--primary-white);
+}
+
+.ta-firstLine::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -0.3rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--primary-white);
+}
+
 @media only screen and (max-width: 600px) {
   /* CSS rules for extra small devices */
 }
