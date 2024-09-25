@@ -18,7 +18,7 @@ function Header() {
       },
       {
         title: "README.md",
-        to: "/readme",
+        to: "/README.md",
       },
       {
         title: "About Me",
@@ -30,10 +30,6 @@ function Header() {
       },
     ];
   }, []);
-
-  // useEffect(() => {
-
-  // }, []);
 
   useGSAP(() => {
     const showAnim = gsap
