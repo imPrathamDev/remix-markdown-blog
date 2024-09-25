@@ -75,7 +75,14 @@ function BlogPage() {
   return (
     <div className="container mx-auto">
       <div className="py-4">
-        <h1 className="text-6xl font-semibold my-2">{data.blog.data.title}</h1>
+        <h1
+          style={{
+            viewTransitionName: data.blog.data.slug + "-text",
+          }}
+          className="text-6xl font-semibold my-2"
+        >
+          {data.blog.data.title}
+        </h1>
         <p className="text-lg font-light text-gray-500">
           {data.blog.data.description}
         </p>
@@ -84,6 +91,9 @@ function BlogPage() {
             src={data.blog.data.thumbnail}
             alt={data.blog.data.title + " By " + data.blog.data.author}
             className="w-full h-[65vh] object-cover"
+            style={{
+              viewTransitionName: data.blog.data.slug,
+            }}
           />
           <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-t from-primary-black/40 to-transparent flex items-end justify-between px-14 pb-6">
             <div className="flex items-center gap-x-8">

@@ -3,7 +3,7 @@ import { divideLines } from "~/helpers/generalHelper";
 import bg from "~/assets/background.jpg";
 import fire from "~/assets/fire.png";
 import moment from "moment";
-import { Link } from "@remix-run/react";
+import { Link, unstable_useViewTransitionState } from "@remix-run/react";
 
 function HeroGrid({
   blog,
@@ -19,16 +19,23 @@ function HeroGrid({
   const lines = useMemo(() => {
     return divideLines(blog.data.title);
   }, [blog]);
+  const isTransitioning = unstable_useViewTransitionState("/blog/" + blog.id);
   return (
     <Link
       to={"/blog/" + blog.id}
       className="row-span-2 col-span-2 lg:col-span-3 lg:row-span-3 group"
+      unstable_viewTransition
     >
-      <div className="hero-box-image h-[45vh] lg:h-[70vh] w-full bg-primary-pink rounded-t-3xl rounded-br-3xl  overflow-hidden relative">
+      <div className="hero-box-image h-[95%] w-full bg-primary-pink rounded-t-3xl rounded-br-3xl  overflow-hidden relative">
         <img
           src={blog.data.thumbnail}
           alt={blog.data.title + " By " + blog.data.author}
           className="w-full h-full object-cover"
+          style={{
+            ...(isTransitioning && {
+              viewTransitionName: blog.id,
+            }),
+          }}
         />
         <div className="absolute top-3 left-3 w-12 h-12 rounded-full flex justify-center items-center bg-primary-white/0 backdrop-blur-sm text-primary-white">
           {/* <svg

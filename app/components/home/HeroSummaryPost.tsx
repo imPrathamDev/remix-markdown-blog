@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react";
+import { Link, unstable_useViewTransitionState } from "@remix-run/react";
 import React, { useEffect, useMemo } from "react";
 import {
   createSlug,
@@ -25,6 +25,9 @@ function HeroSummaryPost({
       .slice(0, 3);
   }, [blogPost]);
 
+  const isTransitioning = unstable_useViewTransitionState(
+    "/blog/" + blogPost.id
+  );
   return (
     <div className="col-span-2 row-span-1 lg:row-span-2 lg:col-span-3 relative">
       <div className="lg:min-h-[35vh] lg:h-full bg-primary-alt-green rounded-3xl left-inverted-radius flex flex-col">
@@ -35,8 +38,15 @@ function HeroSummaryPost({
               <span className="font-normal">{blogPost.data.categories[0]}</span>
             </span>
           </div>
-          <Link to={"/blog/" + blogPost.id}>
-            <h2 className="text-3xl lg:text-5xl font-extrabold text-balance mt-4">
+          <Link to={"/blog/" + blogPost.id} unstable_viewTransition>
+            <h2
+              style={{
+                ...(isTransitioning && {
+                  viewTransitionName: blogPost.id + "-text",
+                }),
+              }}
+              className="text-3xl lg:text-5xl font-extrabold text-balance mt-4"
+            >
               {blogPost.data.title}
             </h2>
           </Link>

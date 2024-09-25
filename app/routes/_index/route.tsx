@@ -29,19 +29,16 @@ export default function Index() {
   const data = useLoaderData<typeof loader>();
 
   return (
-    <div className="p-2 lg:p-4">
-      <section className="lg:px-28 lg:py-2">
-        <h2 className="text-4xl lg:text-5xl font-extrabold text-primary-black my-2">
-          BLOG
-        </h2>
-        <div className="mt-2 lg:mt-8 grid grid-cols-2 lg:grid-cols-7 gap-1 w-full">
-          <HeroGrid blog={data.blogs[0]} />
-          <HeroSummaryPost blogPost={data.blogs[1]} />
-          <VerticalPostGrid blogPost={data.blogs[2]} />
-          <HorizontalPostGrid blogPost={data.blogs[3]} />
-          <CategoryGrid categories={data.categories} />
-        </div>
+    <main className="p-2 lg:p-4">
+      <section className="lg:px-28 lg:py-2 grid grid-cols-2 lg:grid-cols-7 gap-1 w-full">
+        <HeroGrid blog={data.blogs[0]} />
+        <HeroSummaryPost blogPost={data.blogs[1]} />
+        <VerticalPostGrid blogPost={data.blogs[2]} />
+        <HorizontalPostGrid blogPost={data.blogs[3]} />
+        <CategoryGrid categories={data.categories} />
       </section>
-    </div>
+
+      <section className=""></section>
+    </main>
   );
 }
