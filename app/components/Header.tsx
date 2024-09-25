@@ -22,7 +22,8 @@ function Header() {
       },
       {
         title: "About Me",
-        to: "/about",
+        to: "https://github.com/imPrathamDev",
+        target: "_blank",
       },
       {
         title: "Contact",
@@ -79,6 +80,7 @@ function Header() {
                       : "text-gray-400"
                   }`
                 }
+                {...(link.target && { target: link.target })}
               >
                 {link.title}
               </NavLink>

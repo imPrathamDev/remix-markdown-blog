@@ -66,7 +66,7 @@ function HeroGrid({
             <div
               className={`bg-primary-white pl-1 lg:pl-2 rounded-tr-2xl w-fit pr-1 lg:pr-8 py-2 firstLine`}
             >
-              <h2 className="truncate text-xl lg:text-4xl text-primary-black font-extrabold lg:font-medium">
+              <h2 className="truncate text-xl lg:text-4xl text-primary-black font-extrabold">
                 {lines[0]}
               </h2>
             </div>
@@ -76,7 +76,7 @@ function HeroGrid({
       <div
         className={`bg-primary-white pl-1 lg:pl-2 rounded-tr-2xl pr-8 pt-2 pb-4 secondLine`}
       >
-        <h2 className="truncate text-xl lg:text-4xl font-extrabold lg:font-medium">
+        <h2 className="truncate text-xl lg:text-4xl font-extrabold">
           {lines[1]}
         </h2>
       </div>
