@@ -32,7 +32,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="font-inter text-primary-black bg-primary-white scroll-smooth">
+      <body className="font-inter text-primary-black bg-primary-white selection:bg-primary-pink">
         <Header />
         {children}
         <Footer />
