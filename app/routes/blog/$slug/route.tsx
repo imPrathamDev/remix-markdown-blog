@@ -73,17 +73,17 @@ function BlogPage() {
   useGSAP(() => {}, {});
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto px-4 lg:px-4">
       <div className="py-4">
         <h1
           style={{
             viewTransitionName: data.blog.data.slug + "-text",
           }}
-          className="text-6xl font-semibold my-2"
+          className="text-4xl lg:text-6xl font-semibold my-2"
         >
           {data.blog.data.title}
         </h1>
-        <p className="text-lg font-light text-gray-500">
+        <p className="text-base lg:text-lg font-light text-gray-500">
           {data.blog.data.description}
         </p>
         <div className="relative rounded-3xl overflow-hidden mt-4">
@@ -95,7 +95,7 @@ function BlogPage() {
               viewTransitionName: data.blog.data.slug,
             }}
           />
-          <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-t from-primary-black/40 to-transparent flex items-end justify-between px-14 pb-6">
+          <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-t from-primary-black/40 to-transparent flex flex-col lg:flex-row justify-end lg:items-end lg:justify-between gap-y-4 lg:gap-x-0 px-6 lg:px-14 pb-6">
             <div className="flex items-center gap-x-8">
               <BlogThumbnailItem
                 subtitle="Written By"

@@ -2,7 +2,7 @@ import React from "react";
 
 function ShareButton() {
   return (
-    <div className="px-4 py-2 flex items-center gap-x-1 text-primary-white border border-primary-white rounded-xl backdrop-blur-sm text-xs">
+    <div className="px-4 py-2 flex items-center gap-x-1 text-primary-white border border-primary-white rounded-xl backdrop-blur-sm text-xs w-fit">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
