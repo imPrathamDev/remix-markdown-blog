@@ -39,22 +39,22 @@
 .hero-box-image::after {
   content: "";
   position: absolute;
-  bottom: 10vh;
+  top: -1.5rem;
   left: -1px;
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   background: transparent;
-  border-bottom-left-radius: 32px;
+  border-bottom-left-radius: 20px;
   box-shadow: -4px 10px var(--primary-white);
 }
 
 .hero-box-image::before {
   content: "";
   position: absolute;
-  bottom: 10vh;
-  left: -1px;
-  width: 0.5rem;
-  height: 0.5rem;
+  top: 0;
+  left: -0.2rem;
+  width: 0.4rem;
+  height: 0.4rem;
   background: var(--primary-white);
 }
 

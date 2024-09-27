@@ -28,7 +28,7 @@ function HeroGrid({
       className="row-span-2 col-span-2 lg:col-span-3 lg:row-span-3 group"
       unstable_viewTransition
     >
-      <div className="hero-box-image h-[95%] w-full bg-primary-pink rounded-t-3xl rounded-br-3xl  overflow-hidden relative">
+      <div className="lg:h-[95%] w-full bg-primary-pink rounded-t-3xl rounded-br-3xl  overflow-hidden relative">
         <img
           src={blogPost.data.thumbnail}
           alt={blogPost.data.title + " By " + blogPost.data.author}
@@ -62,7 +62,7 @@ function HeroGrid({
             />
           </div>
           <div className="">
-            <div className="w-fit relative">
+            <div className="w-fit relative hero-box-image">
               <div className="flex flex-row items-center gap-x-2 text-xs text-primary-black pt-3 pb-2 px-2 bg-primary-white rounded-tr-2xl test3">
                 <span className="font-bold">
                   Category .{" "}
