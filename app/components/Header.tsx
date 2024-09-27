@@ -18,7 +18,7 @@ function Header() {
       },
       {
         title: "README.md",
-        to: "/README.md",
+        to: "/readme",
       },
       {
         title: "About Me",
