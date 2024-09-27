@@ -39,8 +39,9 @@ function HeroGrid({
             }),
           }}
         />
-        <div className="absolute top-3 left-3 w-12 h-12 rounded-full flex justify-center items-center bg-primary-white/0 backdrop-blur-sm text-primary-white">
-          {/* <svg
+        <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-between">
+          <div className="mt-4 ml-4 w-12 h-12 rounded-full flex justify-center items-center bg-primary-white/0 backdrop-blur-sm text-primary-white">
+            {/* <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -54,32 +55,37 @@ function HeroGrid({
               d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
             />
           </svg> */}
-          <img src={fire} alt="Fire Emoji" className="object-contain size-6" />
-        </div>
-        <div className="absolute bottom-0 w-4/6 h-[10vh]">
-          <div className="w-fit relative">
-            <div className="flex flex-row items-center gap-x-2 text-xs text-primary-black pt-3 pb-2 px-2 bg-primary-white rounded-tr-2xl test3">
-              <span className="font-bold">
-                Category .{" "}
-                <span className="font-normal">
-                  {blogPost.data.categories[0]}
-                </span>
-              </span>
-
-              <span className="text-primary-black">|</span>
-
-              <span className="text-gray-400 font-light">
-                {moment(blogPost.data.date).format("Do MMM")}
-              </span>
-            </div>
+            <img
+              src={fire}
+              alt="Fire Emoji"
+              className="object-contain size-6"
+            />
           </div>
-          <div className="w-fit relative">
-            <div
-              className={`bg-primary-white pl-1 lg:pl-2 rounded-tr-2xl w-fit pr-1 lg:pr-8 py-2 firstLine`}
-            >
-              <h2 className="truncate text-xl lg:text-4xl text-primary-black font-extrabold">
-                {lines[0]}
-              </h2>
+          <div className="">
+            <div className="w-fit relative">
+              <div className="flex flex-row items-center gap-x-2 text-xs text-primary-black pt-3 pb-2 px-2 bg-primary-white rounded-tr-2xl test3">
+                <span className="font-bold">
+                  Category .{" "}
+                  <span className="font-normal">
+                    {blogPost.data.categories[0]}
+                  </span>
+                </span>
+
+                <span className="text-primary-black">|</span>
+
+                <span className="text-gray-400 font-light">
+                  {moment(blogPost.data.date).format("Do MMM")}
+                </span>
+              </div>
+            </div>
+            <div className="w-fit relative">
+              <div
+                className={`bg-primary-white pl-1 lg:pl-2 rounded-tr-2xl w-fit pr-1 lg:pr-8 py-2 firstLine`}
+              >
+                <h2 className="truncate text-xl lg:text-4xl text-primary-black font-extrabold">
+                  {lines[0]}
+                </h2>
+              </div>
             </div>
           </div>
         </div>
