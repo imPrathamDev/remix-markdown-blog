@@ -110,11 +110,11 @@ function BlogPage() {
           </div>
         </div>
       </div>
-      <div className="mx-auto max-w-7xl grid grid-cols-4 gap-x-10">
+      <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-4 lg:gap-x-10">
         <div className="col-span-1">
           <TagList content={data.blog.content} />
         </div>
-        <div className="col-span-3">
+        <div className="col-span-1 lg:col-span-3">
           <article className="prose max-w-none">
             <Markdown
               options={{
