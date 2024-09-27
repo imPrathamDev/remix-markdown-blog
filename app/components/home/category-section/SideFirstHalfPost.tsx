@@ -7,7 +7,11 @@ function SideFirstHalfPost({ blogPost }: { blogPost: any }) {
     "/blog/" + blogPost.id
   );
   return (
-    <div className="h-4/6 w-full relative">
+    <Link
+      to={"/blog/" + blogPost.id}
+      unstable_viewTransition
+      className="h-4/6 w-full relative"
+    >
       <div className="w-full h-full bg-primary-pink rounded-3xl left-inverted-radius">
         <img
           style={{
@@ -39,7 +43,7 @@ function SideFirstHalfPost({ blogPost }: { blogPost: any }) {
           />
         </svg>
       </div>
-    </div>
+    </Link>
   );
 }
 
