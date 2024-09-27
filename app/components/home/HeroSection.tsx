@@ -1,9 +1,9 @@
 import React, { useMemo } from "react";
-import HeroGrid from "./HeroGrid";
-import HeroSummaryPost from "./HeroSummaryPost";
-import VerticalPostGrid from "./VerticalPostGrid";
-import HorizontalPostGrid from "./HorizontalPostGrid";
-import CategoryGrid from "./CategoryGrid";
+import HeroGrid from "./hero-section/HeroGrid";
+import HeroSummaryPost from "./hero-section/HeroSummaryPost";
+import VerticalPostGrid from "./hero-section/VerticalPostGrid";
+import HorizontalPostGrid from "./hero-section/HorizontalPostGrid";
+import CategoryGrid from "./hero-section/CategoryGrid";
 
 function HeroSection({
   blogs,

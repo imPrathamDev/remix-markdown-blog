@@ -1,15 +1,10 @@
 import { json, type MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { getBlogs } from "~/helpers/blogHelper";
-import moment from "moment";
-import HeroGrid from "~/components/home/HeroGrid";
-import HeroSummaryPost from "~/components/home/HeroSummaryPost";
-import VerticalPostGrid from "~/components/home/VerticalPostGrid";
-import CategoryGrid from "~/components/home/CategoryGrid";
-import HorizontalPostGrid from "~/components/home/HorizontalPostGrid";
 import CategorySection from "~/components/home/CategorySection";
 import HeroSection from "~/components/home/HeroSection";
 import { useMemo } from "react";
+
 export const meta: MetaFunction = () => {
   return [
     { title: "Remix Markdown Blog" },
