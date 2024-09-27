@@ -8,6 +8,8 @@ import VerticalPostGrid from "~/components/home/VerticalPostGrid";
 import CategoryGrid from "~/components/home/CategoryGrid";
 import HorizontalPostGrid from "~/components/home/HorizontalPostGrid";
 import CategorySection from "~/components/home/CategorySection";
+import HeroSection from "~/components/home/HeroSection";
+import { useMemo } from "react";
 export const meta: MetaFunction = () => {
   return [
     { title: "Remix Markdown Blog" },
@@ -28,17 +30,16 @@ export const loader = async () => {
 
 export default function Index() {
   const data = useLoaderData<typeof loader>();
+  const filteredCategory = "Yoga";
+  const heroBlogs = useMemo(() => {
+    return data.blogs.filter(
+      (f: any) => !f.data.categories.includes(filteredCategory)
+    );
+  }, [data]);
 
   return (
     <main className="p-2 lg:p-4 lg:px-28">
-      <section className="lg:py-2 grid grid-cols-2 lg:grid-cols-7 gap-1 w-full">
-        <HeroGrid blog={data.blogs[0]} />
-        <HeroSummaryPost blogPost={data.blogs[1]} />
-        <VerticalPostGrid blogPost={data.blogs[2]} />
-        <HorizontalPostGrid blogPost={data.blogs[4]} />
-        <CategoryGrid categories={data.categories} />
-      </section>
-
+      <HeroSection blogs={heroBlogs} categories={data.categories} />
       <CategorySection blogs={data.blogs} />
     </main>
   );

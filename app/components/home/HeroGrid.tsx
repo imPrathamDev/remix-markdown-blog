@@ -6,9 +6,9 @@ import moment from "moment";
 import { Link, unstable_useViewTransitionState } from "@remix-run/react";
 
 function HeroGrid({
-  blog,
+  blogPost,
 }: {
-  blog: {
+  blogPost: {
     content?: string | undefined;
     id: string;
     data: {
@@ -17,23 +17,25 @@ function HeroGrid({
   };
 }) {
   const lines = useMemo(() => {
-    return divideLines(blog.data.title);
-  }, [blog]);
-  const isTransitioning = unstable_useViewTransitionState("/blog/" + blog.id);
+    return divideLines(blogPost.data.title);
+  }, [blogPost]);
+  const isTransitioning = unstable_useViewTransitionState(
+    "/blog/" + blogPost.id
+  );
   return (
     <Link
-      to={"/blog/" + blog.id}
+      to={"/blog/" + blogPost.id}
       className="row-span-2 col-span-2 lg:col-span-3 lg:row-span-3 group"
       unstable_viewTransition
     >
       <div className="hero-box-image h-[95%] w-full bg-primary-pink rounded-t-3xl rounded-br-3xl  overflow-hidden relative">
         <img
-          src={blog.data.thumbnail}
-          alt={blog.data.title + " By " + blog.data.author}
+          src={blogPost.data.thumbnail}
+          alt={blogPost.data.title + " By " + blogPost.data.author}
           className="w-full h-full object-cover"
           style={{
             ...(isTransitioning && {
-              viewTransitionName: blog.id,
+              viewTransitionName: blogPost.id,
             }),
           }}
         />
@@ -59,13 +61,15 @@ function HeroGrid({
             <div className="flex flex-row items-center gap-x-2 text-xs text-primary-black pt-3 pb-2 px-2 bg-primary-white rounded-tr-2xl test3">
               <span className="font-bold">
                 Category .{" "}
-                <span className="font-normal">{blog.data.categories[0]}</span>
+                <span className="font-normal">
+                  {blogPost.data.categories[0]}
+                </span>
               </span>
 
               <span className="text-primary-black">|</span>
 
               <span className="text-gray-400 font-light">
-                {moment(blog.data.date).format("Do MMM")}
+                {moment(blogPost.data.date).format("Do MMM")}
               </span>
             </div>
           </div>
