@@ -14,8 +14,11 @@ import ShareButton from "~/components/blog-page/ShareButton";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import EditButton from "~/components/blog-page/EditButton";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { useRef } from "react";
 
 gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(ScrollTrigger);
 
 export async function loader({ params }: LoaderFunctionArgs) {
   if (params.slug) {
@@ -68,12 +71,28 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 };
 
 function BlogPage() {
+  const container = useRef(null);
   const data = useLoaderData<typeof loader>();
 
-  useGSAP(() => {}, {});
+  useGSAP(
+    () => {
+      gsap.from(".thumbnail", {
+        scrollTrigger: {
+          trigger: "#blog",
+          start: "top 90%",
+          end: "end",
+          scrub: true,
+        },
+        scale: 1.5,
+        ease: "none",
+        // duration: 2,
+      });
+    },
+    { scope: container }
+  );
 
   return (
-    <div className="container mx-auto px-4 lg:px-4">
+    <div ref={container} className="container mx-auto px-4 lg:px-4">
       <div className="py-4">
         <h1
           style={{
@@ -90,7 +109,7 @@ function BlogPage() {
           <img
             src={data.blog.data.thumbnail}
             alt={data.blog.data.title + " By " + data.blog.data.author}
-            className="w-full h-[65vh] object-cover"
+            className="w-full h-[65vh] object-cover thumbnail"
             style={{
               viewTransitionName: data.blog.data.slug,
             }}
@@ -110,7 +129,10 @@ function BlogPage() {
           </div>
         </div>
       </div>
-      <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-4 lg:gap-x-10">
+      <div
+        id="blog"
+        className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-4 lg:gap-x-10"
+      >
         <div className="col-span-1">
           <TagList content={data.blog.content} />
         </div>
