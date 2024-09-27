@@ -24,11 +24,11 @@ function TitleAnimation({ title }: { title: string }) {
   );
 
   return (
-    <h2 ref={container as any} className="text-4xl font-bold">
-      <div className="px-5 pt-3 bg-primary-white w-fit rounded-t-2xl relative ta-firstLine">
-        <span className="title-text transform">{firstLine}</span>
+    <h2 ref={container as any} className="text-lg lg:text-4xl font-bold">
+      <div className="px-2 lg:px-5 pt-2 lg:pt-3 bg-primary-white w-fit rounded-t-2xl relative ta-firstLine">
+        <span className="title-text">{firstLine}</span>
       </div>
-      <div className="px-5 pb-3 pt-2 bg-primary-white w-fit rounded-b-2xl rounded-tr-2xl">
+      <div className="px-2 lg:px-5 pb-2 lg:pb-3 pt-0 lg:pt-2 bg-primary-white w-fit rounded-b-2xl rounded-tr-2xl">
         <span className="title-text">{secondLine}</span>
       </div>
     </h2>
